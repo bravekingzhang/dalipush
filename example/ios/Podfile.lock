@@ -1,11 +1,32 @@
 PODS:
+  - AlicloudPush (1.9.8):
+    - AlicloudUT
+    - AlicloudUtils
+  - AlicloudUT (5.2.0.5):
+    - AlicloudUTDID
+  - AlicloudUTDID (1.1.0.19)
+  - AlicloudUtils (1.3.5):
+    - AlicloudUTDID
   - dalipush (0.0.1):
+    - AlicloudPush
     - Flutter
+    - MJExtension
   - Flutter (1.0.0)
+  - MJExtension (3.0.15.1)
 
 DEPENDENCIES:
+  - AlicloudPush (~> 1.9.8)
   - dalipush (from `.symlinks/plugins/dalipush/ios`)
   - Flutter (from `.symlinks/flutter/ios`)
+
+SPEC REPOS:
+  https://github.com/aliyun/aliyun-specs.git:
+    - AlicloudPush
+    - AlicloudUT
+    - AlicloudUTDID
+    - AlicloudUtils
+  https://github.com/cocoapods/specs.git:
+    - MJExtension
 
 EXTERNAL SOURCES:
   dalipush:
@@ -14,9 +35,14 @@ EXTERNAL SOURCES:
     :path: ".symlinks/flutter/ios"
 
 SPEC CHECKSUMS:
-  dalipush: 25d12259b7df4b285dd577ab03a195e5e07195db
+  AlicloudPush: 50df02cff716d9ac950ceb89195d447e7af003a2
+  AlicloudUT: 1b52965b97c5fc0b630901ce184391fbe1ef8479
+  AlicloudUTDID: 14b582e41b39bc66e5a3420b61dafd0567ef4603
+  AlicloudUtils: 36bd836fdd5c040ee0c9c06b0e1e1096a8c59c44
+  dalipush: 480224d40edf25fe856d924f7d8598514e3f347a
   Flutter: 9d0fac939486c9aba2809b7982dfdbb47a7b0296
+  MJExtension: 19bc33ce2eee2d319760f5622562cf581a6ff756
 
-PODFILE CHECKSUM: 1e5af4103afd21ca5ead147d7b81d06f494f51a2
+PODFILE CHECKSUM: b523e3d9870782d6005ec0c112e73475726f9f65
 
 COCOAPODS: 1.5.3
