@@ -5,6 +5,9 @@ buildscript {
     repositories {
         google()
         jcenter()
+        maven {
+            url 'http://maven.aliyun.com/nexus/content/repositories/releases/'
+        }
     }
 
     dependencies {
@@ -16,6 +19,9 @@ rootProject.allprojects {
     repositories {
         google()
         jcenter()
+        maven {
+            url 'http://maven.aliyun.com/nexus/content/repositories/releases/'
+        }
     }
 }
 
@@ -31,9 +37,15 @@ android {
     lintOptions {
         disable 'InvalidPackage'
     }
+    buildTypes {
+        release {
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
 }
 dependencies {
 //todo
     compile 'com.aliyun.ams:alicloud-android-push:3.1.2'
     implementation 'com.google.code.gson:gson:2.8.5'
+    compile 'com.aliyun.ams:alicloud-android-third-push:3.0.5@aar'
 }

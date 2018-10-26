@@ -172,5 +172,9 @@
             </intent-filter>
         </receiver>
 
+        <activity
+            android:name=".PopupPushActivity"
+            android:exported="true" />
+
     </application>
 </manifest>

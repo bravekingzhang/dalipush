@@ -30,3 +30,5 @@
 # GCM/FCM通道
 -keep class com.google.firebase.**{*;}
 -dontwarn com.google.firebase.**
+
+-keep class com.brzhang.dalipush.PopupPushActivity {*;}

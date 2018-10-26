@@ -28,6 +28,14 @@ public class FApp extends io.flutter.app.FlutterApplication {
     public void onCreate() {
         super.onCreate();
         initCloudChannel(this);
+        //////注意，下面是小米华为的辅助通道，是一种黑科技，可以在进程杀死的情况下，收到推送消息，所谓的离线推送，
+        /////如果需要，注意读一下下面一节，服务端代码那块，如果不需要，直接注释2行，可以满足app在线收到通知
+          // 注册方法会自动判断是否支持小米系统推送，如不支持会跳过注册。
+        MiPushRegister.register(this, "2882303761517882020", "5671788227020");
+        // 注册方法会自动判断是否支持华为系统推送，如不支持会跳过注册。
+        HuaWeiRegister.register(this);
+        //GCM/FCM辅助通道注册
+        //        GcmRegister.register(this, sendId, applicationId); //sendId/applicationId为步骤获得的参数
     }
 
     /**
@@ -52,7 +60,40 @@ public class FApp extends io.flutter.app.FlutterApplication {
     }
 }
 
+
 ```
+1.1 服务端代码
+
+```java
+服务端配置如下：
+
+PushRequest pushRequest = new PushRequest();
+// 其余设置省略
+// ...
+// 0:表示消息(默认为0), 1:表示通知
+pushRequest.setType(1);
+// 标题
+pushRequest.setTitle("hello");
+// 内容
+pushRequest.setBody("PushRequest body");
+// 点击通知后动作 "APPLICATION" : 打开应用 "ACTIVITY" : 打开AndroidActivity "URL" : 打开URL "NONE" : 无跳转
+pushRequest.setAndroidOpenType("APPLICATION");
+// 设置辅助弹窗打开Activity
+pushRequest.setAndroidPopupActivity("com.alibaba.push.testdemo.SecondActivity");
+// 设置辅助弹窗通知标题
+pushRequest.setAndroidPopupTitle("hello2");
+// 设置辅助弹窗通知内容
+pushRequest.setAndroidPopupBody("PushRequest body2");
+// 设定android类型设备通知的扩展属性
+pushRequest.setAndroidExtParameters("{\"k1\":\"android\",\"k2\":\"v2\"}");
+
+
+```
+
+##### 请你们的后端开发注意，这里的setAndroidPopupActivity请配置为`"com.brzhang.dalipush.PopupPushActivity"`
+
+
+
 2、修改build.gradle文件
 
 ```groovy

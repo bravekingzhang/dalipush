@@ -1,6 +1,6 @@
 name: dalipush
 description: 一款集成了阿里推送的flutter插件，使用起来不是很简单，需要在你flutter的android项目中配置一个自己的application，并且在android app的gradle文件中做几个占位符，具体可以看reade.me
-version: 0.0.1
+version: 0.0.2
 author: brzhang  <1595819400@qq.com>
 homepage: https://cloud.tencent.com/developer/user/1203298
 
