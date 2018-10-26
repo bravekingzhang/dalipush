@@ -6,3 +6,8 @@
 pubspec.lock
 
 build/
+.idea/dalipush.iml
+.idea/misc.xml
+.idea/modules.xml
+.idea/vcs.xml
+.idea/workspace.xml
