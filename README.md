@@ -65,7 +65,8 @@ public class FApp extends io.flutter.app.FlutterApplication {
 1.1 服务端代码
 
 ```java
-服务端配置如下：
+
+//服务端配置如下：
 
 PushRequest pushRequest = new PushRequest();
 // 其余设置省略
@@ -126,5 +127,13 @@ defaultConfig {
 
 #### IOS
 
-TODO
+ios需要去配置APNS推送证书，可以参考阿里推送ios配置文档。
+
+然后，你的ios工程中的配置，可以参考本项目example目录下的配置，
+
+1、appDelegate.m文件
+2、AliyunEmasServices-info.plist的导入
+3、pod文件编写
+
+大概经历这些步骤，就ok了。
 
