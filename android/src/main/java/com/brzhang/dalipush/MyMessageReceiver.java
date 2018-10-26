@@ -28,8 +28,8 @@ public class MyMessageReceiver extends MessageReceiver {
         Log.e("DalipushPlugin", "onMessage, messageId: " + cPushMessage.getMessageId() + ", title: " + cPushMessage.getTitle() + ", content:" + cPushMessage.getContent());
         Gson gson = new Gson();
         Log.e("DalipushPlugin", "eventSink: " + DalipushPlugin.getInstance().getEventSink());
-        DalipushPlugin.getInstance().getEventSink().success(gson.toJson(cPushMessage, CPushMessage.class));
-
+        Message message = new Message(cPushMessage);
+        DalipushPlugin.getInstance().getEventSink().success(gson.toJson(message, Message.class));
     }
 
     @Override
@@ -63,6 +63,18 @@ public class MyMessageReceiver extends MessageReceiver {
             this.title = title;
             this.summary = summary;
             this.extraMap = extraMap;
+        }
+    }
+
+    private class Message {
+        String type;
+        String title;
+        String content;
+
+        public Message(CPushMessage cPushMessage) {
+            this.type = "message";
+            this.title = cPushMessage.getTitle();
+            this.content = cPushMessage.getContent();
         }
     }
 }
