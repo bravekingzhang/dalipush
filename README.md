@@ -4,7 +4,7 @@
 
 ## Getting Started
 
-[](https://github.com/bravekingzhang/dalipush/blob/master/WechatIMG403.jpeg)
+![avatar](https://github.com/bravekingzhang/dalipush/blob/master/WechatIMG403.jpeg)
 
 #### 资源申请
 1、首先，你需要到阿里云上面去申请一个appid，申请地址：[阿里云](https://emas.console.aliyun.com/)
