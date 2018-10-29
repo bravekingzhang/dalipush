@@ -4,6 +4,8 @@
 
 ## Getting Started
 
+[](https://github.com/bravekingzhang/dalipush/blob/master/WechatIMG403.jpeg)
+
 #### 资源申请
 1、首先，你需要到阿里云上面去申请一个appid，申请地址：[阿里云](https://emas.console.aliyun.com/)
 2、注意，如果你需要小米，华为离线推送的话，需要参考这里 [参考](https://help.aliyun.com/document_detail/30067.html?spm=a2c4g.11186623.4.3.d82752e7CWEORK)
