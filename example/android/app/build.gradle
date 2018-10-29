@@ -33,7 +33,7 @@ android {
 
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
-        applicationId "com.brzhang.sophixtest"
+        applicationId "com.qiangrui.jiumi2"
         minSdkVersion 16
         targetSdkVersion 27
         versionCode flutterVersionCode.toInteger()
@@ -41,14 +41,9 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         manifestPlaceholders = [
                 ALIPUSH_PKGNAME  : applicationId,
-                ALIPUSH_APPKEY   : "24785693", //ALIPush上注册的包名对应的appkey.
-                ALIPUSH_APPSECRET: "dd973abb9e250f670a9c9f575aee1ab1", //暂时填写默认值即可.
+                ALIPUSH_APPKEY   : "25264807", //ALIPush上注册的包名对应的appkey.
+                ALIPUSH_APPSECRET: "4ad8d830595ad2451dd2f2dc9f0db55d", //ALIPush上注册的包名对应的APPSECRET
         ]
-        //todo
-//        ndk {
-//            //选择要添加的对应cpu类型的.so库。
-//            abiFilters 'armeabi', 'x86', 'armeabi-v7a', 'armeabi-v8a'
-//        }
     }
 
     buildTypes {
