@@ -28,6 +28,18 @@ class Dalipush {
     return version;
   }
 
+  Future<String> get deviceId async {
+    final String id =
+    await _methodChannel.invokeMethod('getDeviceId');
+    return id;
+  }
+
+  Future<String> get deviceToken async {
+    final String token =
+    await _methodChannel.invokeMethod('getDeviceToken');
+    return token;
+  }
+
   Stream<dynamic> get onMessage {
     if (_listener == null) {
       _listener = _eventChannel

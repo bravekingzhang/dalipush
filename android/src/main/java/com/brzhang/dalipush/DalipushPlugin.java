@@ -53,6 +53,12 @@ public class DalipushPlugin implements MethodCallHandler, EventChannel.StreamHan
     public void onMethodCall(MethodCall call, Result result) {
         if (call.method.equals("getPlatformVersion")) {
             result.success("Android " + android.os.Build.VERSION.RELEASE + "packageName" + BuildConfig.APPLICATION_ID);
+        } else if (call.method.equals("getDeviceId")) {
+            final CloudPushService pushService = PushServiceFactory.getCloudPushService();
+            result.success(pushService.getDeviceId());
+        } else if (call.method.equals("getDeviceToken")) {
+            // Android 下没有deviceToken
+            result.success('null');
         } else {
             result.notImplemented();
         }
