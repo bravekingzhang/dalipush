@@ -14,6 +14,8 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   Dalipush _push = new Dalipush();
   String _platformVersion = 'Unknown';
+  String _deviceId = 'Unknown';
+  String _deviceToken= 'Unknown';
 
 //  StreamSubscription<dynamic> _messageStreamSubscription;
 
@@ -26,11 +28,25 @@ class _MyAppState extends State<MyApp> {
   // Platform messages are asynchronous, so we initialize in an async method.
   Future<void> initPlatformState() async {
     String platformVersion;
+    String deviceId;
+    String deviceToken;
     // Platform messages may fail, so we use a try/catch PlatformException.
     try {
       platformVersion = await Dalipush().platformVersion;
     } on PlatformException {
       platformVersion = 'Failed to get platform version.';
+    }
+
+    try {
+      deviceId = await Dalipush().deviceId;
+    } on PlatformException {
+      deviceId = 'Failed to get deviceId';
+    }
+
+    try {
+      deviceToken = await Dalipush().deviceToken;
+    } on PlatformException {
+      deviceId = 'Failed to get deviceToken';
     }
 
     // If the widget was removed from the tree while the asynchronous platform
@@ -46,6 +62,8 @@ class _MyAppState extends State<MyApp> {
 
     setState(() {
       _platformVersion = platformVersion;
+      _deviceId = deviceId;
+      _deviceToken = deviceToken;
     });
   }
 
@@ -67,6 +85,12 @@ class _MyAppState extends State<MyApp> {
             children: <Widget>[
               ListTile(
                 title: new Text('Running on: $_platformVersion\n'),
+              ),
+              ListTile(
+                title: new Text('deviceId: $_deviceId\n'),
+              ),
+              ListTile(
+                title: new Text('deviceToken: $_deviceToken\n'),
               ),
               ListTile(
                 title: StreamBuilder(

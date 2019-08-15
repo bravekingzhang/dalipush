@@ -28,6 +28,11 @@
 - (void)handleMethodCall:(FlutterMethodCall*)call result:(FlutterResult)result {
   if ([@"getPlatformVersion" isEqualToString:call.method]) {
     result([@"iOS " stringByAppendingString:[[UIDevice currentDevice] systemVersion]]);
+  } else if ([@"getDeviceId" isEqualToString:call.method]) {
+    result([CloudPushSDK getDeviceId]);
+
+  } else if([@"getDeviceToken" isEqualToString:call.method]) {
+    result([CloudPushSDK getApnsDeviceToken]);
   } else {
     result(FlutterMethodNotImplemented);
   }
